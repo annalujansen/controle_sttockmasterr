@@ -10,6 +10,9 @@ import GoogleProvider from "next-auth/providers/google";
 import { env } from "~/env";
 import { db } from "~/server/db";
 
+import { Transaction } from "@prisma/client";
+import { useReducer } from "react";
+
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
  * object and keep type safety.
@@ -20,15 +23,16 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
       id: string;
-      // ...other properties
-      // role: UserRole;
+      isadmin: boolean;
+      transaction: Transaction[];
+
     } & DefaultSession["user"];
   }
 
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
+  interface User {
+    isadmin: boolean;
+    transaction: Transaction[];
+  }
 }
 
 /**
@@ -43,8 +47,13 @@ export const authOptions: NextAuthOptions = {
       user: {
         ...session.user,
         id: user.id,
+        isadmin: user.isadmin,
+        transaction: user.transaction
       },
     }),
+    // signIn: ({user}) => {
+    //   return true;
+    // }
   },
   adapter: PrismaAdapter(db) as Adapter,
   providers: [

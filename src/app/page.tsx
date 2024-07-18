@@ -1,9 +1,5 @@
-import Login from '~/app/_components/login';
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div>
-      <Login />
-    </div>
+    <p>hello world</p>
   );
 }

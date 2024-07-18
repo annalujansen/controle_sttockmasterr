@@ -1,11 +1,17 @@
 "use client";
 import styles from '~/styles/login.module.css';
 import { signIn, signOut, useSession } from "next-auth/react";
-import { useState } from "react";
-import { Session } from 'inspector';
+import { useRouter } from 'next/navigation';
+
 
 export default function Login() {
   const session = useSession();
+//   const router = useRouter();
+  function handleClickSignIn() {
+    signIn("google")
+    // router.push("/")
+  }
+
   return (
     <main className={styles.main}>
         <div className={styles.container}>
@@ -22,7 +28,7 @@ export default function Login() {
                 </div>
             </form>
             <div className={styles.botao}>
-                <button className={styles.buttonIn} onClick={() => signIn("google")}>Entre com Google</button>
+                <button className={styles.buttonIn} onClick={handleClickSignIn}>Entrar com Google</button>
             </div>
         </div>
     </main>
