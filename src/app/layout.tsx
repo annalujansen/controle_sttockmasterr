@@ -1,5 +1,5 @@
 import "~/styles/globals.css";
-
+import { AuthProvider } from "./_components/authProvider";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
@@ -11,10 +11,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={GeistSans.className}>{children}</body>
+      <body className={GeistSans.className}>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }
