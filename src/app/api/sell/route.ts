@@ -22,23 +22,26 @@ export async function POST(request: Request) {
     }
 
     const product = await prisma.product.findUnique({ where: { id } });
-    console.log('Fetched product:', product); // Log do produto recuperado
+    console.log('Fetched product:', product);
 
     if (product && product.quantity >= quantitySold) {
       const updatedProduct = await prisma.product.update({
         where: { id },
-        data: { quantity: product.quantity - quantitySold },
+        data: {
+          quantity: product.quantity - quantitySold,
+          recentSoldAmount: quantitySold,
+          totalSoldAmount: product.totalSoldAmount + quantitySold,
+        },
       });
-      console.log('Product updated:', updatedProduct); // Log da atualização do produto
+      console.log('Product updated:', updatedProduct);
       return new Response(JSON.stringify(updatedProduct), { status: 200 });
     } else {
       console.log('Quantidade insuficiente ou produto não encontrado');
       return new Response(JSON.stringify({ error: 'Quantidade insuficiente ou produto não encontrado' }), { status: 400 });
     }
   } catch (error) {
-    console.error('Error handling request:', error); // Log do erro
+    console.error('Error handling request:', error);
     return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
   }
 }
-
 

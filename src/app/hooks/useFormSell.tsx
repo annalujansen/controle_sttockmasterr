@@ -45,7 +45,6 @@ export default function useFormSell(onSellComplete: () => void) {
     }
     closeForm();
   };
-  
 
   return {
     isOpen,

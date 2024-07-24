@@ -54,6 +54,8 @@ model Product {
     description  String?
     price      Float
     quantity   Int
+    recentSoldAmount Int @default(0)
+    totalSoldAmount Int @default(0)
     transaction  Transaction[]
 }
 
