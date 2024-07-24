@@ -23,7 +23,7 @@ export default function useFormSell(onSellComplete: () => void) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (quantity > 0 && productId !== null) {
-      console.log('quantidade_vendida: ', quantity);
+      //console.log('quantidade_vendida: ', quantity);
       try {
         const response = await fetch('/api/sell', {
           method: 'POST',
