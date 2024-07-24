@@ -52,8 +52,10 @@ model Product {
     id         String  @id @default(cuid())
     name       String
     description  String?
-    price      Int
+    price      Float
     quantity   Int
+    recentSoldAmount Int @default(0)
+    totalSoldAmount Int @default(0)
     transaction  Transaction[]
 }
 
