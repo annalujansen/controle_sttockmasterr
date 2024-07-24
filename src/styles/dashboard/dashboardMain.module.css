@@ -1,0 +1,63 @@
+.dashboardMain{
+    background-image: url("/images/dashboardBackground2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    width:100vw;
+    overflow-x: hidden;
+}
+
+.dashboardMain>h1{
+    color:rgb(190, 21, 21);
+    margin-left: 45vw;
+    margin-right:41vw;
+    margin-top: 10vw;
+    padding: 20px;
+    padding-right: 20px;
+    border: 3px solid blue;
+    background-color: blueviolet;
+    border-radius: 15px;
+}
+
+@media(max-width:1300px){
+    .dashboardMain>h1{
+        margin-left: 40vw;
+    }
+}
+
+@media(max-width:1080px){
+    .dashboardMain>h1{
+        margin-left: 40vw;
+        margin-right: 35vw;
+    }
+}
+
+@media(max-width:800px){
+    .dashboardMain>h1{
+        margin-left: 40vw;
+        margin-right: 30vw;
+    }
+}
+
+@media(max-width:680px){
+    .dashboardMain>h1{
+        margin-left: 25vw;
+        margin-right: 35vw;
+    }
+}
+
+@media(max-width:500px){
+    .dashboardMain>h1{
+        margin-left: 23vw;
+        margin-right: 23vw;
+    }
+}
+
+@media(max-width:380px){
+    .dashboardMain>h1{
+        font-size: 1.3rem;
+    }
+}
+
