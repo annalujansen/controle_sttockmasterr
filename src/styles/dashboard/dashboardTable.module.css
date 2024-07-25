@@ -1,0 +1,31 @@
+.dashboardTable{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin:auto;
+    margin-top: 1rem;
+}
+.dashboardTable > thead {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #922E2E;    
+}
+.dashboardTable > thead > tr > th {
+    border: 1px solid black;
+    border-collapse: collapse;        
+}
+
+.dashboardTable > tbody {
+    background-color: #c24124;;
+}
+
+
+.dashboardTable > tbody >tr{
+    border: 1px solid black;
+    border-collapse: collapse;      
+}
+
+.dashboardTable > tbody > tr > th{
+    border: 1px solid black;
+    border-collapse: collapse;      
+}
+
