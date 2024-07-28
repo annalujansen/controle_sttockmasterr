@@ -9,7 +9,7 @@ export default async function middleware(request: NextRequest) {
   const tokenName = "next-auth.session-token";
   const token = request.cookies.get(tokenName);
 
-  if (pathname.startsWith("/login") && token) {
+  if (pathname === "/" && token) {
     const session = (await (
       await fetch(process.env.NEXTAUTH_URL + "/api/auth/session", {
         method: "GET",
@@ -31,15 +31,81 @@ export default async function middleware(request: NextRequest) {
         )
     }
   
-  else {
-    return(
-        NextResponse.next()
-    )
-  }}
+    }
+    else if (pathname == "/estoque") {
+      console.log(pathname )
+      const session = (await (
+        await fetch(process.env.NEXTAUTH_URL + "/api/auth/session", {
+          method: "GET",
+          headers: {
+            ...Object.fromEntries(request.headers),
+          },
+        })
+      ).json()) as Session;
+      return !session?.user
+      ? NextResponse.redirect(getUrlByPath("/"))
+      : NextResponse.next();
+  }
 
+  else if (pathname == "/product") {
+    console.log(pathname )
+    const session = (await (
+      await fetch(process.env.NEXTAUTH_URL + "/api/auth/session", {
+        method: "GET",
+        headers: {
+          ...Object.fromEntries(request.headers),
+        },
+      })
+    ).json()) as Session;
+    return !session?.user
+    ? NextResponse.redirect(getUrlByPath("/"))
+    : NextResponse.next();
+}
+
+else if (pathname == "/createProduct") {
+  console.log(pathname )
+  const session = (await (
+    await fetch(process.env.NEXTAUTH_URL + "/api/auth/session", {
+      method: "GET",
+      headers: {
+        ...Object.fromEntries(request.headers),
+      },
+    })
+  ).json()) as Session;
+  return !session?.user
+  ? NextResponse.redirect(getUrlByPath("/"))
+  : NextResponse.next();
+}
+
+else if (pathname == "/editProduct") {
+  console.log(pathname )
+  const session = (await (
+    await fetch(process.env.NEXTAUTH_URL + "/api/auth/session", {
+      method: "GET",
+      headers: {
+        ...Object.fromEntries(request.headers),
+      },
+    })
+  ).json()) as Session;
+  return !session?.user
+  ? NextResponse.redirect(getUrlByPath("/"))
+  : NextResponse.next();
+}
+
+else if (pathname == "/deleteProduct") {
+  console.log(pathname )
+  const session = (await (
+    await fetch(process.env.NEXTAUTH_URL + "/api/auth/session", {
+      method: "GET",
+      headers: {
+        ...Object.fromEntries(request.headers),
+      },
+    })
+  ).json()) as Session;
+  return !session?.user
+  ? NextResponse.redirect(getUrlByPath("/"))
+  : NextResponse.next();
+}
   return NextResponse.next();
 }
 
-export const config = {
-  matcher: ["/login"],
-};

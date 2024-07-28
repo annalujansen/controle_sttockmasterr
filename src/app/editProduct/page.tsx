@@ -1,5 +1,5 @@
 import { EditProduct } from '../_components/editeProduct';
-import styles from '../styles/products.module.css';
+import styles from '~/styles/products.module.css';
 
 export default function EditProductPage() {
     return (

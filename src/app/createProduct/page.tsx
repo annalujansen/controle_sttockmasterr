@@ -1,5 +1,5 @@
 import {CreateProduct} from '../_components/createProduct';
-import styles from '../styles/products.module.css';
+import styles from '~/styles/products.module.css';
 
 export default function CreateProductPage() {
     return (

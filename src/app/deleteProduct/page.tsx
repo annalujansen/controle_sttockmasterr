@@ -1,5 +1,5 @@
 import { DeleteProduct } from '../_components/deleteProduct';
-import styles from '../styles/products.module.css';
+import styles from '~/styles/products.module.css';
 
 export default function DeleteProductPage() {
     return (
