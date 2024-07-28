@@ -1,5 +1,10 @@
+import { Products } from "./_components/products";
+
 export default function HomePage() {
   return (
-    <p>hello world</p>
+    <div>
+      <p>hello world</p>
+      <Products />
+    </div>
   );
 }
