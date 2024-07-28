@@ -10,15 +10,17 @@
 }
 
 .extratoMain>h1{
-    color:rgb(190, 21, 21);
     margin-left: 45vw;
     margin-right:45vw;
     margin-top: 10vw;
-    padding: 20px;
-    padding-right: 20px;
-    border: 3px solid blue;
-    background-color: blueviolet;
-    border-radius: 15px;
+    font-size: 1rem;
+    background-color: #0500ff;
+    padding: 8px;
+    margin-bottom: 2rem;
+    color:white;
+    display: flex;
+    justify-content: center;   
+    align-items: center;   
 }
 
 @media(max-width:1300px){
